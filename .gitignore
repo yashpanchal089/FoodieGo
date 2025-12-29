@@ -1,0 +1,20 @@
+# Spring Boot
+foodiesapi/target/
+foodiesapi/.idea/
+src/main/resources/application.properties
+
+# Vite / React
+vite-project/node_modules/
+vite-project/dist/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.text=auto
