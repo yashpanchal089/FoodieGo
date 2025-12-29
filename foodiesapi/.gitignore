@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# 🔒 Secrets (DO NOT COMMIT)
+src/main/resources/application.properties
+.env
