@@ -3,7 +3,7 @@ import Menubar from './Components/Menubar/Menubar.jsx';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Home from './pages/Home/Home.jsx';
-import ContactUs from './pages/Contact Us/ContactUs.jsx';
+import ContactUs from './pages/Contact/Contact.jsx';
 import ExploreFood from './pages/ExploreFood/ExploreFood.jsx';
 
 
