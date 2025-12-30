@@ -17,8 +17,6 @@ const ExploreMenu = () => {
         }
     };
 
-
-
     return (
         <div className="explore-menu position-relative">
             <h1 className="d-flex align-items-center justify-content-between">
@@ -41,6 +39,7 @@ const ExploreMenu = () => {
                     })
                 }
             </div>
+            <hr />
         </div>
     )
 }
