@@ -54,7 +54,7 @@ const removeFood = async (foodId) => {
                       <img src={item.imageUrl} alt="" height={48} width={48} />
                     </td>
                     <td>{item.name}</td>
-                    <td>{item.category}</td>
+                    <td>{item?.category ? item.category.charAt(0).toUpperCase() + item.category.slice(1) : ''}</td>
                     <td>&#8377;{item.price}.00</td>
                     <td className='text-danger'>
                       <i className='bi bi-x-circle-fill' onClick={() => removeFood(item.id)}></i>
