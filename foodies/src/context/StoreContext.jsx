@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import { fetchFoodList } from "../service/foodService.js";
 
 export const StoreContext = createContext(null);
 
@@ -14,7 +14,7 @@ export const StoreContextProvider = (props) => {
 
     useEffect(() => {
         async function loadData() {
-            const data = await fetchfoodList();
+            const data = await fetchFoodList();
             setFoodList(data);
         }
         loadData();
