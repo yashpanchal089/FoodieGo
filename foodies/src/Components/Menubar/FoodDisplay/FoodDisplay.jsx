@@ -2,8 +2,8 @@ import React from 'react';
 
 const FoodDisplay = () => {
     return (
-        <div>
-            FoodDisplay
+        <div className="container">
+            
         </div>
     )
 }
