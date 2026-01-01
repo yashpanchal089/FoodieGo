@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { fetchFoodList } from "../service/foodService.js";
+import { fetchfoodList } from "../service/foodService.js";
 
 export const StoreContext = createContext(null);
 
@@ -14,8 +14,13 @@ export const StoreContextProvider = (props) => {
 
     useEffect(() => {
         async function loadData() {
-            const data = await fetchFoodList();
-            setFoodList(data);
+            try {
+                const data = await fetchfoodList();
+                setFoodList(Array.isArray(data) ? data : []);
+            } catch (err) {
+                console.error("Failed to load food list", err);
+                setFoodList([]);
+            }
         }
         loadData();
     }, []);
