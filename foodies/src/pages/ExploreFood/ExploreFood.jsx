@@ -1,10 +1,9 @@
 import React from 'react';
+import FoodDisplay from '../../Components/Menubar/FoodDisplay/FoodDisplay';
 
 const ExploreFood = () => {
     return (
-        <div>
-            ExploreFood
-        </div>
+        <FoodDisplay />
     )
 }
 
