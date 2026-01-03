@@ -29,7 +29,7 @@ const FoodDetails = () => {
                         <div className="fs-5 mb-1">Category <span className='badge text-bg-warning'>{data.category}</span></div>
                         <h1 className="display-5 fw-bolder">{data.name}</h1>
                         <div className="fs-5 mb-2">
-                            <span>&#8377;{data.price}</span>
+                            <span>&#8377;{data.price}.00</span>
                         </div>
                         <p className="lead">{data.description}</p>
                         <div className="d-flex">
