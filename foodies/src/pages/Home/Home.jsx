@@ -9,7 +9,7 @@ const Home = () => {
         <main className='container'>
             <Header />
             <ExploreMenu category={category} setCategory={setCategory} />
-            <FoodDisplay />
+            <FoodDisplay category={category} />
         </main>
     )
 }
