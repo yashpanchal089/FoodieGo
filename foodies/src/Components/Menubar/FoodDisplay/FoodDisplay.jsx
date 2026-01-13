@@ -3,11 +3,17 @@ import { StoreContext } from '../../../context/StoreContext.jsx';
 import FoodItem from '../FoodItem/FoodItem.jsx';
 
 const normalize = (s) => (s || '').toLowerCase().trim();
-const FoodDisplay = ({category}) => {
-    const {foodList} = useContext(StoreContext);
-    const filteredFoods = foodList.filter(food => (
-        category === 'All' || normalize(food.category) === normalize(category)
-    ));
+const FoodDisplay = ({ category = 'All', searchText = '' }) => {
+    const { foodList } = useContext(StoreContext);
+    const list = Array.isArray(foodList) ? foodList : [];
+    const cat = normalize(category);
+    const query = normalize(searchText);
+    const filteredFoods = list.filter(food => {
+        const foodCat = normalize(food.category);
+        const matchesCategory = cat === 'all' || foodCat.includes(cat);
+        const matchesSearch = !query || normalize(food.name).includes(query) || normalize(food.description).includes(query);
+        return matchesCategory && matchesSearch;
+    });
     return (
         <div className="container">
             <div className="row">
