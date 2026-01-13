@@ -24,11 +24,11 @@ export const categories = [
         icon: burger
     },
     {
-        category: 'Cakes',
+        category: 'Cake',
         icon: cake
     },
     {
-        category: 'Ice Cream',
+        category: 'Ice-cream',
         icon: icecream
     },
     {
@@ -36,7 +36,7 @@ export const categories = [
         icon: pizza
     },
     {
-        category: 'Rolls',
+        category: 'chinese-rolls',
         icon: rolls
     },
     {
