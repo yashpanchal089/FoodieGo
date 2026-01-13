@@ -17,6 +17,7 @@ const ExploreFood = () => {
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
                             >
+                                <option value="All">All</option>
                                 <option value="Biryani">Biryani</option>
                                 <option value="Burger">Burger</option>
                                 <option value="Pizza">Pizza</option>
