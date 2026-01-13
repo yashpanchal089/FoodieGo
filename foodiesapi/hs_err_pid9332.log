@@ -1,0 +1,250 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3736), pid=9332, tid=14488
+#
+# JRE version:  (21.0.8+9) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.8+9-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:52532,suspend=y,server=n -javaagent:C:\Users\DELLIN~1\AppData\Local\Temp\captureAgent31226jars\debugger-agent.jar=file:///C:/Users/DELLIN~1/AppData/Local/Temp/capture4519530561728965290.props -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 in.yash.foodiesapi.FoodiesapiApplication
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+Time: Mon Jan 12 17:40:37 2026 India Standard Time elapsed time: 0.492168 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001943ef921d0):  JavaThread "Unknown thread" [_thread_in_vm, id=14488, stack(0x00000027f9800000,0x00000027f9900000) (1024K)]
+
+Stack: [0x00000027f9800000,0x00000027f9900000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6e1729]
+V  [jvm.dll+0x8bf47b]
+V  [jvm.dll+0x8c19aa]
+V  [jvm.dll+0x8c2083]
+V  [jvm.dll+0x289fd6]
+V  [jvm.dll+0x6de085]
+V  [jvm.dll+0x6d218a]
+V  [jvm.dll+0x366f6e]
+V  [jvm.dll+0x36ee1b]
+V  [jvm.dll+0x3c06b9]
+V  [jvm.dll+0x3c095b]
+V  [jvm.dll+0x33a8b7]
+V  [jvm.dll+0x33b3fb]
+V  [jvm.dll+0x888e5e]
+V  [jvm.dll+0x3cd611]
+V  [jvm.dll+0x871e5c]
+V  [jvm.dll+0x461261]
+V  [jvm.dll+0x462ea1]
+C  [jli.dll+0x52f0]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17374]
+C  [ntdll.dll+0x4cc91]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffc87266288, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x000001943efecde0 WorkerThread "GC Thread#0"                     [id=21940, stack(0x00000027f9900000,0x00000027f9a00000) (1024K)]
+  0x000001943efff240 ConcurrentGCThread "G1 Main Marker"            [id=24300, stack(0x00000027f9a00000,0x00000027f9b00000) (1024K)]
+  0x000001943f000700 WorkerThread "G1 Conc#0"                       [id=21536, stack(0x00000027f9b00000,0x00000027f9c00000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc8695d307]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffc872da8c8] Heap_lock - owner thread: 0x000001943ef921d0
+
+Heap address: 0x0000000081800000, size: 2024 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000081800000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc86d4ba99]
+GC Heap History (0 events):
+No events
+
+Dll operation events (2 events):
+Event: 0.061 Loaded shared library C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\java.dll
+Event: 0.063 Loaded shared library C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\zip.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff67c340000 - 0x00007ff67c34e000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\java.exe
+0x00007ffd2af10000 - 0x00007ffd2b108000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffd2ab70000 - 0x00007ffd2ac32000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffd28700000 - 0x00007ffd289f6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffd28a00000 - 0x00007ffd28b00000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffd20bb0000 - 0x00007ffd20bc8000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\jli.dll
+0x00007ffd14f50000 - 0x00007ffd14f6e000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\VCRUNTIME140.dll
+0x00007ffd291b0000 - 0x00007ffd29351000 	C:\Windows\System32\USER32.dll
+0x00007ffd28b00000 - 0x00007ffd28b22000 	C:\Windows\System32\win32u.dll
+0x00007ffd2a9c0000 - 0x00007ffd2a9eb000 	C:\Windows\System32\GDI32.dll
+0x00007ffd28be0000 - 0x00007ffd28cf9000 	C:\Windows\System32\gdi32full.dll
+0x00007ffd13630000 - 0x00007ffd138cb000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.6456_none_60b8a6cb71f64256\COMCTL32.dll
+0x00007ffd28e90000 - 0x00007ffd28f2d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffd28fc0000 - 0x00007ffd2905e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffd2ac40000 - 0x00007ffd2ac6f000 	C:\Windows\System32\IMM32.DLL
+0x000000006fe60000 - 0x000000006fe6c000 	C:\Program Files (x86)\360\Total Security\safemon\SafeWrapper.dll
+0x00007ffd29a30000 - 0x00007ffd29ae1000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffd2a870000 - 0x00007ffd2a90f000 	C:\Windows\System32\sechost.dll
+0x00007ffd29fe0000 - 0x00007ffd2a100000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffd28e60000 - 0x00007ffd28e87000 	C:\Windows\System32\bcrypt.dll
+0x00007ffd01d00000 - 0x00007ffd01dac000 	C:\Program Files (x86)\360\Total Security\safemon\libzdtp64.dll
+0x00007ffd2a100000 - 0x00007ffd2a870000 	C:\Windows\System32\SHELL32.dll
+0x00007ffd29af0000 - 0x00007ffd29b4b000 	C:\Windows\System32\SHLWAPI.dll
+0x00007ffd21540000 - 0x00007ffd2154a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffd20f20000 - 0x00007ffd20f2c000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\vcruntime140_1.dll
+0x00007ffcfc320000 - 0x00007ffcfc3a9000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\msvcp140.dll
+0x00007ffc86610000 - 0x00007ffc873bc000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\server\jvm.dll
+0x00007ffd29440000 - 0x00007ffd294ab000 	C:\Windows\System32\WS2_32.dll
+0x00007ffd27ae0000 - 0x00007ffd27b2b000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffd13940000 - 0x00007ffd13967000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffd279a0000 - 0x00007ffd279b2000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffd26d70000 - 0x00007ffd26d82000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffd20240000 - 0x00007ffd2024a000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\jimage.dll
+0x00007ffd26150000 - 0x00007ffd26351000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffd12b40000 - 0x00007ffd12b74000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffd28670000 - 0x00007ffd286f2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffcfd010000 - 0x00007ffcfd04c000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\jdwp.dll
+0x00007ffd14f90000 - 0x00007ffd14fa0000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\instrument.dll
+0x00007ffd14eb0000 - 0x00007ffd14ed1000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\java.dll
+0x00007ffd05a40000 - 0x00007ffd05a58000 	C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\zip.dll
+
+JVMTI agents:
+jdwp path:none, loaded, not initialized, options:transport=dt_socket,address=127.0.0.1:52532,suspend=y,server=n
+C:\Users\DELLIN~1\AppData\Local\Temp\captureAgent31226jars\debugger-agent.jar path:none, loaded, not initialized, instrumentlib options:file:///C:/Users/DELLIN~1/AppData/Local/Temp/capture4519530561728965290.props
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.6456_none_60b8a6cb71f64256;C:\Program Files (x86)\360\Total Security\safemon;C:\Users\Dell Inspiron\.jdks\ms-21.0.8\bin\server
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:52532,suspend=y,server=n -javaagent:C:\Users\DELLIN~1\AppData\Local\Temp\captureAgent31226jars\debugger-agent.jar=file:///C:/Users/DELLIN~1/AppData/Local/Temp/capture4519530561728965290.props -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: in.yash.foodiesapi.FoodiesapiApplication
+java_class_path (initial): F:\Foodies\foodiesapi\target\classes;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.5.8\spring-boot-starter-data-mongodb-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.8\spring-boot-starter-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.8\spring-boot-starter-logging-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\ch\qos\logback\logback-classic\1.5.21\logback-classic-1.5.21.jar;C:\Users\Dell Inspiron\.m2\repository\ch\qos\logback\logback-core\1.5.21\logback-core-1.5.21.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\Dell Inspiron\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Dell Inspiron\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Dell Inspiron\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\Dell Inspiron\.m2\repository\org\mongodb\mongodb-driver-sync\5.5.2\mongodb-driver-sync-5.5.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\mongodb\bson\5.5.2\bson-5.5.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\mongodb\mongodb-driver-core\5.5.2\mongodb-driver-core-5.5.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\mongodb\bson-record-codec\5.5.2\bson-record-codec-5.5.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\data\spring-data-mongodb\4.5.6\spring-data-mongodb-4.5.6.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-tx\6.2.14\spring-tx-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-context\6.2.14\spring-context-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-beans\6.2.14\spring-beans-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-expression\6.2.14\spring-expression-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\data\spring-data-commons\3.5.6\spring-data-commons-3.5.6.jar;C:\Users\Dell Inspiron\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.5.8\spring-boot-starter-validation-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.49\tomcat-embed-el-10.1.49.jar;C:\Users\Dell Inspiron\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.3.Final\hibernate-validator-8.0.3.Final.jar;C:\Users\Dell Inspiron\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.8\spring-boot-starter-web-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.8\spring-boot-starter-json-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.4\jackson-databind-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.4\jackson-annotations-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.4\jackson-core-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.4\jackson-datatype-jdk8-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.4\jackson-datatype-jsr310-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.4\jackson-module-parameter-names-2.19.4.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.8\spring-boot-starter-tomcat-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.49\tomcat-embed-core-10.1.49.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.49\tomcat-embed-websocket-10.1.49.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-web\6.2.14\spring-web-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\io\micrometer\micrometer-observation\1.15.6\micrometer-observation-1.15.6.jar;C:\Users\Dell Inspiron\.m2\repository\io\micrometer\micrometer-commons\1.15.6\micrometer-commons-1.15.6.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-webmvc\6.2.14\spring-webmvc-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-aop\6.2.14\spring-aop-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-devtools\3.5.8\spring-boot-devtools-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot\3.5.8\spring-boot-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.8\spring-boot-autoconfigure-3.5.8.jar;C:\Users\Dell Inspiron\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-core\6.2.14\spring-core-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\org\springframework\spring-jcl\6.2.14\spring-jcl-6.2.14.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\s3\2.30.31\s3-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\aws-xml-protocol\2.30.31\aws-xml-protocol-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\aws-query-protocol\2.30.31\aws-query-protocol-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\protocol-core\2.30.31\protocol-core-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\arns\2.30.31\arns-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\profiles\2.30.31\profiles-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\crt-core\2.30.31\crt-core-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\http-auth\2.30.31\http-auth-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\identity-spi\2.30.31\identity-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\http-auth-spi\2.30.31\http-auth-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\http-auth-aws\2.30.31\http-auth-aws-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\checksums\2.30.31\checksums-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\checksums-spi\2.30.31\checksums-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\retries-spi\2.30.31\retries-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\sdk-core\2.30.31\sdk-core-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\retries\2.30.31\retries-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\auth\2.30.31\auth-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\http-auth-aws-eventstream\2.30.31\http-auth-aws-eventstream-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\eventstream\eventstream\1.0.1\eventstream-1.0.1.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\http-client-spi\2.30.31\http-client-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\regions\2.30.31\regions-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\annotations\2.30.31\annotations-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\utils\2.30.31\utils-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\aws-core\2.30.31\aws-core-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\metrics-spi\2.30.31\metrics-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\json-utils\2.30.31\json-utils-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\third-party-jackson-core\2.30.31\third-party-jackson-core-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\endpoints-spi\2.30.31\endpoints-spi-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\apache-client\2.30.31\apache-client-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\Dell Inspiron\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Dell Inspiron\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;C:\Users\Dell Inspiron\.m2\repository\commons-codec\commons-codec\1.18.0\commons-codec-1.18.0.jar;C:\Users\Dell Inspiron\.m2\repository\software\amazon\awssdk\netty-nio-client\2.30.31\netty-nio-client-2.30.31.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-codec-http\4.1.128.Final\netty-codec-http-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-codec-http2\4.1.128.Final\netty-codec-http2-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-codec\4.1.128.Final\netty-codec-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-transport\4.1.128.Final\netty-transport-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-common\4.1.128.Final\netty-common-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-buffer\4.1.128.Final\netty-buffer-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-handler\4.1.128.Final\netty-handler-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.128.Final\netty-transport-native-unix-common-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.128.Final\netty-transport-classes-epoll-4.1.128.Final.jar;C:\Users\Dell Inspiron\.m2\repository\io\netty\netty-resolver\4.1.128.Final\netty-resolver-4.1.128.Final.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2025.1.4.1\lib\idea_rt.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2122317824                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2122317824                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-17
+PATH=C:\Python314\Scripts\;C:\Python314\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-24\bin;C:\Users\Dell Inspiron\Downloads\apache-maven-3.9.11-bin\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Java\jdk-17\bin;C:\Python314\Scripts\;C:\Python314\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-24\bin;C:\Users\Dell Inspiron\Downloads\apache-maven-3.9.11-bin\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Dell Inspiron\AppData\Roaming\npm;C:\Users\Dell Inspiron\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=Dell Inspiron
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+TMP=C:\Users\DELLIN~1\AppData\Local\Temp
+TEMP=C:\Users\DELLIN~1\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+OS uptime: 1 days 5:01 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xf0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, f16c
+Processor Information for the first 8 processors :
+  Max Mhz: 1800, Current Mhz: 1600, Mhz Limit: 1584
+
+Memory: 4k page, system-wide physical 8088M (258M free)
+TotalPageFile size 32664M (AvailPageFile size 0M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 60M, peak: 188M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.8+9-LTS) for windows-amd64 JRE (21.0.8+9-LTS), built on 2025-07-10T20:22:44Z by "MicrosoftCorporation" with unknown MS VC++:1944
+
+END.
