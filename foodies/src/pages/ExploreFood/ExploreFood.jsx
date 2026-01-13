@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FoodDisplay from '../../Components/Menubar/FoodDisplay/FoodDisplay';
 
 const ExploreFood = () => {
+    const [category, setCategory] = useState('All');
     return (
         <>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <div className="input-group mb-3">
-                            <select className='form-select mt-2' style={{ 'maxWidth': '150px' }}>
+                            <select
+                                className='form-select mt-2'
+                                style={{ 'maxWidth': '150px' }}
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                            >
                                 <option value="Biryani">Biryani</option>
                                 <option value="Burger">Burger</option>
                                 <option value="Pizza">Pizza</option>
@@ -25,7 +31,7 @@ const ExploreFood = () => {
                     </div>
                 </div>
             </div>
-            <FoodDisplay />
+            <FoodDisplay category={category} />
         </>
     )
 }
