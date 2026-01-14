@@ -90,16 +90,6 @@ const Cart = () => {
                                 <button className="btn btn-primary w-100">Proceed to Checkout</button>
                         </div>
                     </div>
-                    {/* <!-- Promo Code --> */}
-                    <div className="card mt-4">
-                        <div className="card-body">
-                            <h5 className="card-title mb-3">Apply Promo Code</h5>
-                            <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Enter promo code" />
-                                    <button className="btn btn-outline-secondary" type="button">Apply</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
