@@ -3,6 +3,15 @@ import { StoreContext } from '../../context/StoreContext';
 import './Cart.css';
 
 const Cart = () => {
+    const { increaseQty, decreaseQty, quantities } = useContext(StoreContext);
+    //cart items
+    const cartItems = foodList.filter(food => quantities[food.id] > 0);
+
+    //calculating
+    const subtotal = cartItems.reduce((acc, food) => acc + food.price * quantities[food.id], 0);
+    const shipping = subtotal === 0 ? 0.0: 10;
+    const tax = subtotal * 0.1; //10% tax
+    const total = subtotal + shipping + tax;
     return (
         <div className="container py-5">
             <h1 className="mb-5">Your Shopping Cart</h1>
