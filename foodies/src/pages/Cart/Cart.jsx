@@ -1,4 +1,6 @@
 import React from 'react';
+import { StoreContext } from '../../context/StoreContext';
+import './Cart.css';
 
 const Cart = () => {
     return (
