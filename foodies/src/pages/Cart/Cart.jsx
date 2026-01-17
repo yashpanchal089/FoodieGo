@@ -7,8 +7,7 @@ const Cart = () => {
 
     //cart items
     const { foodList, increaseQty, decreaseQty, quantities } = useContext(StoreContext);
-    const list = Array.isArray(foodList) ? foodList : [];
-    const cartItems = list.filter(food => (quantities[food.id] || 0) > 0);
+    const cartItems = foodList.filter(food => (quantities[food.id] || 0) > 0);
 
     //calculating
     const subtotal = cartItems.reduce((acc, food) => acc + (food.price || 0) * (quantities[food.id] || 0), 0);
@@ -21,55 +20,43 @@ const Cart = () => {
             <div className="row">
                 <div className="col-lg-8">
                     {/* <!-- Cart Items --> */}
-                    <div className="card mb-4">
-                        <div className="card-body">
-                            <div className="row cart-item mb-3">
-                                <div className="col-md-3">
-                                    <img src="https://via.placeholder.com/100" alt="Product 1" className="img-fluid rounded" />
-                                </div>
-                                <div className="col-md-5">
-                                    <h5 className="card-title">Product 1</h5>
-                                    <p className="text-muted">Category: Electronics</p>
-                                </div>
-                                <div className="col-md-2">
-                                    <div className="input-group">
-                                        <button className="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                        <input style={{maxWidth: "100px"}} type="text" className="form-control  form-control-sm text-center quantity-input"/>
-                                            <button className="btn btn-outline-secondary btn-sm" type="button">+</button>
-                                    </div>
-                                </div>
-                                <div className="col-md-2 text-end">
-                                    <p className="fw-bold">$99.99</p>
-                                    <button className="btn btn-sm btn-outline-danger">
-                                        <i className="bi bi-trash"></i>
-                                    </button>
+                    {
+                        cartItems.length === 0 ? (
+                            <p>You cart is empty</p>
+                        ) : (
+                            <div className="card mb-4">
+                                <div className="card-body">
+                                    {cartItems.map((food) => (
+                                            <div key={food.id} className="row cart-item mb-3">
+                                                <div className="col-md-3">
+                                                    <img src={food.imageUrl} alt={food.name} className="img-fluid rounded" />
+                                                </div>
+                                                <div className="col-md-5">
+                                                    <h5 className="card-title">{food.name}</h5>
+                                                    <p className="text-muted">Category: {food.category}</p>
+                                                </div>
+                                                <div className="col-md-2">
+                                                    <div className="input-group">
+                                                        <button className="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                                        <input style={{ maxWidth: "100px" }} type="text" className="form-control  form-control-sm text-center quantity-input" />
+                                                        <button className="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-2 text-end">
+                                                    <p className="fw-bold">&#8377;{food.price}</p>
+                                                    <button className="btn btn-sm btn-outline-danger">
+                                                        <i className="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        
+                                    ))}
+
+                                    <hr />
                                 </div>
                             </div>
-                            <hr />
-                                <div className="row cart-item">
-                                    <div className="col-md-3">
-                                        <img src="https://via.placeholder.com/100" alt="Product 2" className="img-fluid rounded"/>
-                                    </div>
-                                    <div className="col-md-5">
-                                        <h5 className="card-title">Product 2</h5>
-                                        <p className="text-muted">Category: Clothing</p>
-                                    </div>
-                                    <div className="col-md-2">
-                                        <div className="input-group">
-                                            <button className="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                            <input style={{maxWidth: "100px"}} type="text" className="form-control form-control-sm text-center quantity-input" />
-                                                <button className="btn btn-outline-secondary btn-sm" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 text-end">
-                                        <p className="fw-bold">$49.99</p>
-                                        <button className="btn btn-sm btn-outline-danger">
-                                            <i className="bi bi-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
+                        )
+                    }
                     {/* <!-- Continue Shopping Button --> */}
                     <div className="text-start mb-4">
                         <a href="#" className="btn btn-outline-primary">
@@ -95,11 +82,11 @@ const Cart = () => {
                                 <span>$20.00</span>
                             </div>
                             <hr />
-                                <div className="d-flex justify-content-between mb-4">
-                                    <strong>Total</strong>
-                                    <strong>$229.97</strong>
-                                </div>
-                                <button className="btn btn-primary w-100">Proceed to Checkout</button>
+                            <div className="d-flex justify-content-between mb-4">
+                                <strong>Total</strong>
+                                <strong>$229.97</strong>
+                            </div>
+                            <button className="btn btn-primary w-100">Proceed to Checkout</button>
                         </div>
                     </div>
                 </div>
