@@ -29,7 +29,7 @@ const Cart = () => {
                                     {cartItems.map((food) => (
                                             <div key={food.id} className="row cart-item mb-3">
                                                 <div className="col-md-3">
-                                                    <img src={food.imageUrl} alt={food.name} className="img-fluid rounded" />
+                                                    <img src={food.imageUrl} alt={food.name} className="img-fluid rounded" width={100}/>
                                                 </div>
                                                 <div className="col-md-5">
                                                     <h5 className="card-title">{food.name}</h5>
@@ -37,13 +37,15 @@ const Cart = () => {
                                                 </div>
                                                 <div className="col-md-2">
                                                     <div className="input-group">
-                                                        <button className="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                                        <input style={{ maxWidth: "100px" }} type="text" className="form-control  form-control-sm text-center quantity-input" />
-                                                        <button className="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                                        <button className="btn btn-outline-secondary btn-sm" type="button" 
+                                                        onClick={()=> decreaseQty(food.id)}>-</button>
+                                                        <input style={{ maxWidth: "100px" }} type="text" className="form-control  form-control-sm text-center quantity-input" 
+                                                        value={quantities[food.id]} readOnly />
+                                                        <button className="btn btn-outline-secondary btn-sm" type="button" onClick={()=> increaseQty(food.id)}>+</button>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-2 text-end">
-                                                    <p className="fw-bold">&#8377;{food.price}</p>
+                                                    <p className="fw-bold">&#8377;{(food.price * (quantities[food.id])).toFixed(2)}</p>
                                                     <button className="btn btn-sm btn-outline-danger">
                                                         <i className="bi bi-trash"></i>
                                                     </button>
