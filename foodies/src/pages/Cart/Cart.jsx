@@ -61,9 +61,9 @@ const Cart = () => {
                     }
                     {/* <!-- Continue Shopping Button --> */}
                     <div className="text-start mb-4">
-                        <a href="#" className="btn btn-outline-primary">
+                        <Link to="/" className="btn btn-outline-primary">
                             <i className="bi bi-arrow-left me-2"></i>Continue Shopping
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-lg-4">
