@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import './Cart.css';
 
 const Cart = () => {
+    const navigate = useNavigate();
 
     //cart items
     const { foodList, increaseQty, decreaseQty, quantities, removedFromCart } = useContext(StoreContext);
@@ -89,8 +90,13 @@ const Cart = () => {
                                 <strong>Total</strong>
                                 <strong>&#8377;{subtotal === 0 ? 0.0 :total.toFixed(2)}</strong>
                             </div>
-                            <button className="btn btn-primary w-100" disabled={cartItems.length === 0}
-                            >Proceed to Checkout</button>
+                            <button
+                                className="btn btn-primary w-100"
+                                disabled={cartItems.length === 0}
+                                onClick={() => navigate('/order')}
+                            >
+                                Proceed to Checkout
+                            </button>
                         </div>
                     </div>
                 </div>
