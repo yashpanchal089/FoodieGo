@@ -18,13 +18,13 @@ const Menubar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className={active === "home" ? "nav-link fw-bold" : "nav-link"} to="/" onClick={() => setActive('home')}>Home</Link>
+                            <Link className={active === "home" ? "nav-link active" : "nav-link"} to="/" onClick={() => setActive('home')}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={active === "explore" ? "nav-link fw-bold" : "nav-link"} to="/explore" onClick={() => setActive('explore')}>Explore</Link>
+                            <Link className={active === "explore" ? "nav-link active" : "nav-link"} to="/explore" onClick={() => setActive('explore')}>Explore</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={active === "contact-us" ? "nav-link fw-bold" : "nav-link"} to="/contact" onClick={() => setActive('contact-us')}>Contact us</Link>
+                            <Link className={active === "contact-us" ? "nav-link active" : "nav-link"} to="/contact" onClick={() => setActive('contact-us')}>Contact us</Link>
                         </li>
                     </ul>
                     <div className="d-flex align-items-center gap-4">
