@@ -50,11 +50,11 @@ const Cart = () => {
                                                         <i className="bi bi-trash"></i>
                                                     </button>
                                                 </div>
+
                                             </div>
                                         
                                     ))}
-
-                                    <hr />
+                                    
                                 </div>
                             </div>
                         )
@@ -73,22 +73,23 @@ const Cart = () => {
                             <h5 className="card-title mb-4">Order Summary</h5>
                             <div className="d-flex justify-content-between mb-3">
                                 <span>Subtotal</span>
-                                <span>$199.97</span>
+                                <span>&#8377;{subtotal.toFixed(2)}</span>
                             </div>
                             <div className="d-flex justify-content-between mb-3">
                                 <span>Shipping</span>
-                                <span>$10.00</span>
+                                <span>&#8377;{subtotal === 0 ? 0.0 : shipping.toFixed(2)}</span>
                             </div>
                             <div className="d-flex justify-content-between mb-3">
                                 <span>Tax</span>
-                                <span>$20.00</span>
+                                <span>&#8377;{tax.toFixed(2)}</span>
                             </div>
                             <hr />
                             <div className="d-flex justify-content-between mb-4">
                                 <strong>Total</strong>
-                                <strong>$229.97</strong>
+                                <strong>&#8377;{subtotal === 0 ? 0.0 :total.toFixed(2)}</strong>
                             </div>
-                            <button className="btn btn-primary w-100">Proceed to Checkout</button>
+                            <button className="btn btn-primary w-100" disabled={cartItems.length === 0}
+                            >Proceed to Checkout</button>
                         </div>
                     </div>
                 </div>
