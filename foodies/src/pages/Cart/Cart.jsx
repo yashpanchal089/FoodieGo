@@ -6,7 +6,7 @@ import './Cart.css';
 const Cart = () => {
 
     //cart items
-    const { foodList, increaseQty, decreaseQty, quantities } = useContext(StoreContext);
+    const { foodList, increaseQty, decreaseQty, quantities, removedFromCart } = useContext(StoreContext);
     const cartItems = foodList.filter(food => (quantities[food.id] || 0) > 0);
 
     //calculating
@@ -46,7 +46,8 @@ const Cart = () => {
                                                 </div>
                                                 <div className="col-md-2 text-end">
                                                     <p className="fw-bold">&#8377;{(food.price * (quantities[food.id])).toFixed(2)}</p>
-                                                    <button className="btn btn-sm btn-outline-danger">
+                                                    <button className="btn btn-sm btn-outline-danger" onClick={() => removedFromCart(food.id)} 
+                                                        >
                                                         <i className="bi bi-trash"></i>
                                                     </button>
                                                 </div>
