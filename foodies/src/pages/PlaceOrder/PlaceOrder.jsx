@@ -220,7 +220,8 @@ const PlaceOrder = () => {
                   <div className="col-12">
                     {" "}
                     <label for="email" className="form-label">
-                      Email <span className="text-body-secondary">(Optional)</span>
+                      Email{" "}
+                      <span className="text-body-secondary">(Optional)</span>
                     </label>{" "}
                     <input
                       type="email"
@@ -301,7 +302,9 @@ const PlaceOrder = () => {
                       placeholder=""
                       required
                     />{" "}
-                    <div className="invalid-feedback">Zip code required.</div>{" "}
+                    <div className="invalid-feedback">
+                      Zip code required.
+                    </div>{" "}
                   </div>{" "}
                 </div>{" "}
                 <hr className="my-4" />{" "}
