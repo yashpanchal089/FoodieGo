@@ -3,7 +3,7 @@ import "./PlaceOrder.css";
 
 const PlaceOrder = () => {
   return (
-    <div className="container mt-2">
+    <div className="container mt-4">
       <div className="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
         {" "}
         <button
@@ -81,7 +81,7 @@ const PlaceOrder = () => {
           </li>
         </ul>
       </div>
-      <div className="container mt-2">
+      <div className="container mt-4">
         <main>
           <div className="row g-5">
             {" "}
