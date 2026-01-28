@@ -14,7 +14,7 @@ const PlaceOrder = () => {
             width="98"
             height="98"
           />{" "}
-          <h1 class="h2">Checkout form</h1>{" "}
+
           
         </div>
         <div className="row g-5">
@@ -111,7 +111,7 @@ const PlaceOrder = () => {
                     {" "}
                     <span className="input-group-text">@</span>{" "}
                     <input
-                      type="text"
+                      type="email"
                       className="form-control"
                       id="email"
                       placeholder="Email"
@@ -119,6 +119,19 @@ const PlaceOrder = () => {
                     />{" "}
                   </div>{" "}
                 </div>{" "}
+                <div className="col-12">
+                  {" "}
+                  <label htmlFor="phone" className="form-label">
+                    Phone Number
+                  </label>{" "}
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="phone"
+                    placeholder="1234-5678-90"
+                    required
+                  />{" "}
+                </div>{" "} 
                 <div className="col-12">
                   {" "}
                   <label htmlFor="address" className="form-label">
@@ -132,19 +145,7 @@ const PlaceOrder = () => {
                     required
                   />{" "}
                 </div>{" "}
-                <div className="col-12">
-                  {" "}
-                  <label htmlFor="address2" className="form-label">
-                    Address 2{" "}
-                    <span className="text-body-secondary">(Optional)</span>
-                  </label>{" "}
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="address2"
-                    placeholder="Apartment or suite"
-                  />{" "}
-                </div>{" "}
+                
                 <div className="col-md-5">
                   {" "}
                   <label htmlFor="country" className="form-label">
@@ -153,7 +154,7 @@ const PlaceOrder = () => {
                   <select className="form-select" id="country" required>
                     {" "}
                     <option value="">Choose...</option>{" "}
-                    <option>United States</option>{" "}
+                    <option>India</option>{" "}
                   </select>{" "}
                 </div>{" "}
                 <div className="col-md-4">
@@ -164,7 +165,7 @@ const PlaceOrder = () => {
                   <select className="form-select" id="state" required>
                     {" "}
                     <option value="">Choose...</option>{" "}
-                    <option>California</option>{" "}
+                    <option>Maharashtra</option>{" "}
                   </select>{" "}
                 </div>{" "}
                 <div className="col-md-3">
@@ -173,10 +174,10 @@ const PlaceOrder = () => {
                     Zip
                   </label>{" "}
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="zip"
-                    placeholder=""
+                    placeholder="400001"
                     required
                   />{" "}
                 </div>{" "}
