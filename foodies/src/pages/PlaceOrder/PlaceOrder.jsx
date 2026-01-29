@@ -51,16 +51,16 @@ const PlaceOrder = () => {
                   &#8377;{item.price * quantities[item.id]}</span>{" "}
               </li>
               ))}
-              <li className="list-group-item d-flex justify-content-between lh-sm">
+              <li className="list-group-item d-flex justify-content-between">
                 {" "}
                 <div>
                   {" "}
-                  <h6 className="my-0">Second product</h6>{" "}
-                  <small className="text-body-secondary">
-                    Brief description
-                  </small>{" "}
+                  
+                  <span>
+                    Shipping 
+                  </span>{" "}
                 </div>{" "}
-                <span className="text-body-secondary">$8</span>{" "}
+                <span className="text-body-secondary">{subtotal == 0? 0.0 : shipping.toFixed(2)}</span>{" "}
               </li>{" "}
               <li className="list-group-item d-flex justify-content-between lh-sm">
                 {" "}
