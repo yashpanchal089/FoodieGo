@@ -5,6 +5,14 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 
 const PlaceOrder = () => {
   const { foodList, quantities, setQuantities } = useContext(StoreContext);
+      //cart items
+      const cartItems = foodList.filter(food => (quantities[food.id] || 0) > 0);
+  
+      //calculating
+      const subtotal = cartItems.reduce((acc, food) => acc + (food.price || 0) * (quantities[food.id] || 0), 0);
+      const shipping = subtotal === 0 ? 0.0 : 10;
+      const tax = subtotal * 0.1; // 10% tax
+      const total = subtotal + shipping + tax;
   return (
     <div className="container mt-4">
       <main>
@@ -26,21 +34,23 @@ const PlaceOrder = () => {
             <h4 className="d-flex justify-content-between align-items-center mb-3">
               {" "}
               <span className="text-primary">Your cart</span>{" "}
-              <span className="badge bg-primary rounded-pill">3</span>{" "}
+              <span className="badge bg-primary rounded-pill">{cartItems.length}</span>{" "}
             </h4>{" "}
             <ul className="list-group mb-3">
-              {" "}
-              <li className="list-group-item d-flex justify-content-between lh-sm">
+              {cartItems.map(item => (
+                <li className="list-group-item d-flex justify-content-between lh-sm">
                 {" "}
                 <div>
                   {" "}
-                  <h6 className="my-0">Product name</h6>{" "}
+                  <h6 className="my-0">{item.name}</h6>{" "}
                   <small className="text-body-secondary">
-                    Brief description
+                    Qty: {quantities[item.id]}
                   </small>{" "}
                 </div>{" "}
-                <span className="text-body-secondary">$12</span>{" "}
-              </li>{" "}
+                <span className="text-body-secondary">
+                  &#8377;{item.price * quantities[item.id]}</span>{" "}
+              </li>
+              ))}
               <li className="list-group-item d-flex justify-content-between lh-sm">
                 {" "}
                 <div>
