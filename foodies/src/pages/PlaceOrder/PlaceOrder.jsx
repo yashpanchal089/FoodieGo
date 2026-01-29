@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./PlaceOrder.css";
 import { assets } from "../../assets/assets";
+import { StoreContext } from "../../context/StoreContext.jsx";
 
 const PlaceOrder = () => {
+  const { foodList, quantities, setQuantities } = useContext(StoreContext);
   return (
     <div className="container mt-4">
       <main>
@@ -70,7 +72,7 @@ const PlaceOrder = () => {
           <div className="col-md-7 col-lg-8">
             {" "}
             <h4 className="mb-3">Billing address</h4>{" "}
-            <form className="needs-validation" novalidate>
+            <form className="needs-validation" noValidate>
               {" "}
               <div className="row g-3">
                 {" "}
@@ -83,7 +85,7 @@ const PlaceOrder = () => {
                     type="text"
                     className="form-control"
                     id="firstName"
-                    placeholder=""
+                    placeholder="jhon"
                     value=""
                     required
                   />{" "}
@@ -97,7 +99,7 @@ const PlaceOrder = () => {
                     type="text"
                     className="form-control"
                     id="lastName"
-                    placeholder=""
+                    placeholder="alex"
                     value=""
                     required
                   />{" "}
