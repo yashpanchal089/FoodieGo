@@ -74,7 +74,8 @@ const PlaceOrder = () => {
               </li>{" "}
               <li className="list-group-item d-flex justify-content-between">
                 {" "}
-                <span>Total (INR)</span> <strong>&#8377;20</strong>{" "}
+                <span>Total (INR)</span> 
+                <strong>&#8377;{total.toFixed(2)}</strong>{" "}
               </li>{" "}
             </ul>{" "}
           </div>{" "}
