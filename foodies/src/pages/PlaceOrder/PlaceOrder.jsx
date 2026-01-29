@@ -60,18 +60,17 @@ const PlaceOrder = () => {
                     Shipping 
                   </span>{" "}
                 </div>{" "}
-                <span className="text-body-secondary">{subtotal == 0? 0.0 : shipping.toFixed(2)}</span>{" "}
+                <span className="text-body-secondary">&#8377;{subtotal == 0? 0.0 : shipping.toFixed(2)}</span>{" "}
               </li>{" "}
-              <li className="list-group-item d-flex justify-content-between lh-sm">
+              <li className="list-group-item d-flex justify-content-between">
                 {" "}
                 <div>
                   {" "}
-                  <h6 className="my-0">Third item</h6>{" "}
-                  <small className="text-body-secondary">
-                    Brief description
-                  </small>{" "}
+                  <span>
+                    Tax(10%)
+                  </span>{" "}
                 </div>{" "}
-                <span className="text-body-secondary">$5</span>{" "}
+                <span className="text-body-secondary">&#8377;{tax.toFixed(2)}</span>{" "}
               </li>{" "}
               <li className="list-group-item d-flex justify-content-between">
                 {" "}
