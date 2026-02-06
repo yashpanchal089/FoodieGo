@@ -7,6 +7,8 @@ import ContactUs from './pages/Contact/Contact.jsx';
 import FoodDetails from './pages/FoodDetails/FoodDetails.jsx';
 import Cart from './pages/Cart/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx';
+import Login from './Components/Menubar/Login/Login.jsx';
+import Register from './Components/Menubar/Register/Register.jsx';
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/food/:id" element={<FoodDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
       </Routes>
     </div>
