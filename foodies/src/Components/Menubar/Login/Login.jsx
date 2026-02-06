@@ -38,9 +38,15 @@ const Login = () => {
                   >
                     Sign in
                   </button>
+                  <button
+                    className="btn btn-outline-danger btn-login text-uppercase mt-2"
+                    type="reset"
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4">
-                    Already have an account? <Link to="/register">Sign Up</Link>
+                  Already have an account? <Link to="/register">Sign Up</Link>
                 </div>
               </form>
             </div>
