@@ -1,5 +1,6 @@
 import React from "react";
 import "./Register.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -9,9 +10,18 @@ const Register = () => {
           <div className="card border-0 shadow rounded-3 my-5">
             <div className="card-body p-4 p-sm-5">
               <h5 className="card-title text-center mb-5 fw-light fs-5">
-                Sign In
+                Sign Up
               </h5>
               <form onSubmit={(e) => e.preventDefault()}>
+                <div className="form-floating mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="floatingName"
+                    placeholder="Alex John"
+                  />
+                  <label htmlFor="floatingName">Full Name</label>
+                </div>
                 <div className="form-floating mb-3">
                   <input
                     type="email"
@@ -35,7 +45,7 @@ const Register = () => {
                     className="btn btn-outline-primary btn-login text-uppercase"
                     type="submit"
                   >
-                    Sign in
+                    Sign Up
                   </button>
                   <button
                     className="btn btn-outline-danger btn-login text-uppercase mt-2"
@@ -45,7 +55,7 @@ const Register = () => {
                   </button>
                 </div>
                 <div className="mt-4">
-                  Already have an account? <Link to="/register">Sign Up</Link>
+                  Already have an account? <Link to="/login">Sign In</Link>
                 </div>
               </form>
             </div>
