@@ -94,7 +94,6 @@ const PlaceOrder = () => {
                     className="form-control"
                     id="firstName"
                     placeholder="jhon"
-                    value=""
                     required
                   />{" "}
                 </div>{" "}
@@ -108,7 +107,6 @@ const PlaceOrder = () => {
                     className="form-control"
                     id="lastName"
                     placeholder="alex"
-                    value=""
                     required
                   />{" "}
                 </div>{" "}
