@@ -22,12 +22,8 @@ public class UserController {
 
 
     @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public AutheticationResponse register(@RequestBody UserRequest request) {
-        UserResponse response = userService.registerUser(request);
-        // load user details and generate jwt token
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(response.getEmail());
-        final String jwtToken = jwtUtil.generateToken(userDetails);
-        return new AutheticationResponse(response.getEmail(), jwtToken);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public UserResponse register(@RequestBody UserRequest request) {
+        return userService.registerUser(request);
     }
 }
