@@ -39,7 +39,7 @@ public class AuthController {
         String jwtToken = jwtUtil.generateToken(userDetails);
 
         return new AutheticationResponse(
-                request.getEmail(),
+                userDetails.getUsername(),
                 jwtToken
         );
     }
