@@ -1,6 +1,9 @@
 package in.yash.foodiesapi.Service;
 
+import in.yash.foodiesapi.io.CartRequest;
+import in.yash.foodiesapi.io.CartResponse;
+
 public interface CartService {
 
-    void addToCart(String foodId);
+    CartResponse addToCart(CartRequest request);
 }
