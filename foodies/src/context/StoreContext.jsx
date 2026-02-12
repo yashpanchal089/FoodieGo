@@ -50,6 +50,9 @@ export const StoreContextProvider = (props) => {
             try {
                 const data = await fetchfoodList();
                 setFoodList(Array.isArray(data) ? data : []);
+                if(localStorage.getItem('token')) {
+                    setToken(localStorage.getItem('token'));
+                }
             } catch (err) {
                 console.error("Failed to load food list", err);
                 setFoodList([]);
