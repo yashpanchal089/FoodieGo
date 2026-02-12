@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { fetchfoodList } from "../service/foodService.js";
+import { addToCart, getCartData, removeQtyFromCart } from "../service/cartService.js";
 
 export const StoreContext = createContext(null);
 
@@ -13,16 +14,13 @@ export const StoreContextProvider = (props) => {
 
     const increaseQty = async (foodId) => {
         setQuantities((prev) => ({ ...prev, [foodId]: (prev[foodId] || 0) + 1 }));
+        await addToCart(foodId, token);
 
-        await axios.post('http://localhost:8081/api/cart',
-            { foodId },
-            { headers: { Authorization: `Bearer ${token}` } });
     }
 
     const decreaseQty = async (foodId) => {
         setQuantities((prev) => ({ ...prev, [foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0 }));
-
-        await axios.post('http://localhost:8081/api/cart/remove', { foodId }, { headers: { Authorization: `Bearer ${token}` }});
+        await removeQtyFromCart(foodId, token);
     };
 
     const removedFromCart = (foodId) => {
@@ -34,8 +32,8 @@ export const StoreContextProvider = (props) => {
     };
 
     const loadCartData = async (token) => {
-        const response = await axios.get('http://localhost:8081/api/cart', { headers: { Authorization: `Bearer ${token}` } });
-        setQuantities(response.data.items);
+        const items = await getCartData(token);
+        setQuantities(items);
     }
 
     const contextValue = {
