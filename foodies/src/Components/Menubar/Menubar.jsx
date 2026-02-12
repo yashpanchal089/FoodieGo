@@ -51,7 +51,7 @@ const Menubar = () => {
                                 <a href='#' className="d-block link-dark text-decoration-none dropdown-toggle" 
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">
-                                    <img src="" alt="" width={32} height={32} className="rounded-circle"/>
+                                    <img src={assets.profile} alt="" width={32} height={32} className="rounded-circle"/>
                                 </a>
                                 <ul className="dropdown-menu text-small">
                                     <li className="dropdown-item" onClick={() => navigate('/myorders')}>My Orders</li>
