@@ -33,6 +33,11 @@ export const StoreContextProvider = (props) => {
         });
     };
 
+    const loadCartData = async (token) => {
+        const response = await axios.get('http://localhost:8081/api/cart', { headers: { Authorization: `Bearer ${token}` } });
+        setQuantities(response.data.items);
+    }
+
     const contextValue = {
         foodList,
         increaseQty,
@@ -41,6 +46,8 @@ export const StoreContextProvider = (props) => {
         removedFromCart,
         token,
         setToken,
+        setQuantities,
+        loadCartData,
     };
 
     // keep localStorage in sync with token state
@@ -59,6 +66,7 @@ export const StoreContextProvider = (props) => {
                 setFoodList(Array.isArray(data) ? data : []);
                 if (localStorage.getItem('token')) {
                     setToken(localStorage.getItem('token'));
+                    await loadCartData(localStorage.getItem('token'));
                 }
             } catch (err) {
                 console.error("Failed to load food list", err);
