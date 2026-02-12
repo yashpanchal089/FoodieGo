@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../../service/authService.js";
+import { StoreContext } from "../../../context/StoreContext.jsx";
+
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const {setToken} = useContext(StoreContext);
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: '',
     password: ''
@@ -15,10 +21,27 @@ const Login = () => {
   }
 
   
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     // Handle form submission logic here, such as sending data to the server
-    console.log("Form submitted:", data);
+
+    try {
+      console.log('Login request payload:', data);
+      const response = await login(data);
+      console.log('Login response:', response);
+      if (response && response.status === 200 && response.data && response.data.token) {
+        setToken(response.data.token);
+        localStorage.setItem('token', response.data.token);
+        navigate('/');
+      } else{
+        const msg = response && response.data && response.data.message ? response.data.message : 'Login failed. Please try again.';
+        toast.error(msg);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      const msg = error.response && error.response.data && error.response.data.message ? error.response.data.message : (error.message || 'Login failed. Please try again.');
+      toast.error(msg);
+    }
   }
   return (
     <div className="login-container">
