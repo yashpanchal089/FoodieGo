@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  }
+
+  
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    // Handle form submission logic here, such as sending data to the server
+    console.log("Form submitted:", data);
+  }
   return (
     <div className="login-container">
       <div className="container">
@@ -13,13 +30,16 @@ const Login = () => {
               <h5 className="card-title text-center mb-5 fw-light fs-5">
                 Sign In
               </h5>
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={onSubmitHandler}>
                 <div className="form-floating mb-3">
                   <input
                     type="email"
                     className="form-control"
                     id="floatingInput"
                     placeholder="name@example.com"
+                    name="email"
+                    value={data.email}
+                    onChange={onChangeHandler}
                   />
                   <label htmlFor="floatingInput">Email address</label>
                 </div>
@@ -29,6 +49,9 @@ const Login = () => {
                     className="form-control"
                     id="floatingPassword"
                     placeholder="Password"
+                    name="password"
+                    value={data.password}
+                    onChange={onChangeHandler}
                   />
                   <label htmlFor="floatingPassword">Password</label>
                 </div>
