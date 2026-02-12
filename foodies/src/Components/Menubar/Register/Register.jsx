@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const[data, setData] = useState({
@@ -15,11 +17,27 @@ const Register = () => {
     setData((data) => ({ ...data, [name]: value }));
   }
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     // Handle form submission logic here, such as sending data to the server
+    try {
+      const response = await axios.post("http://localhost:8081/api/register", data);
+      console.log('Register response:', response);
+      if (response.status >= 200 && response.status < 300) {
+        const msg = response.data && response.data.message ? response.data.message : 'Registration successful! Please log in.';
+        toast.success(msg);
+        setData({ name: '', email: '', password: '' });
+      } else {
+        const msg = response.data && response.data.message ? response.data.message : 'Registration failed. Please try again.';
+        toast.error(msg);
+      }
+    } catch (error) {
+      console.error('Register error:', error);
+      const msg = error.response && error.response.data && error.response.data.message ? error.response.data.message : 'Registration failed. Please try again.';
+      toast.error(msg);
+    }
     console.log("Form submitted:", data);
-  }
+  };
 
   return (
     <div className="register-container">
