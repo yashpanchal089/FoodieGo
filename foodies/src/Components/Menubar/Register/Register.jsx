@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const Register = () => {
+  const navigate = useNavigate();
   const[data, setData] = useState({
     name: "",
     email: "",
@@ -26,6 +27,7 @@ const Register = () => {
       if (response.status >= 200 && response.status < 300) {
         const msg = response.data && response.data.message ? response.data.message : 'Registration successful! Please log in.';
         toast.success(msg);
+        navigate('/login');
         setData({ name: '', email: '', password: '' });
       } else {
         const msg = response.data && response.data.message ? response.data.message : 'Registration failed. Please try again.';
