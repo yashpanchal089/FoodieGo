@@ -25,8 +25,9 @@ export const removeQtyFromCart = async (foodId, token) => {
 export const getCartData = async (token) => {
     try {
         const response = await axios.get(API_URL, { headers: { Authorization: `Bearer ${token}` } });
-        return response.data.items;
+        return response.data && response.data.items ? response.data.items : {};
     } catch (error) {
         console.error("Failed to load cart data", error);
+        return {};
     }
 }
